@@ -43,7 +43,9 @@ class Server:
         """
         method definition that returns a dictionary
         """
-        assert isinstance(index, (int, type(None))) and (index is None or index >= 0)
+        assert isinstance(index, (int, type(None))) and (
+                index is None or index >= 0
+                )
         assert isinstance(page_size, int) and page_size > 0
 
         indexed_dataset = self.indexed_dataset()
@@ -52,7 +54,11 @@ class Server:
 
         start_index = index
         end_index = min(index + page_size, len(indexed_dataset))
-        data = [i for j, i in indexed_dataset.items() if start_index <= j < end_index]
+        data = [
+                i
+                for j, i in indexed_dataset.items()
+                if start_index <= j < end_index
+                ]
 
         return {
                 'index': start_index,

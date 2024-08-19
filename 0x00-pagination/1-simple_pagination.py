@@ -43,5 +43,5 @@ class Server:
         method definition
         """
         start = (page - 1) * page_size
-        end = start + page_size
+        end = min(start + page_size, len(self.dataset()))
         return start, end

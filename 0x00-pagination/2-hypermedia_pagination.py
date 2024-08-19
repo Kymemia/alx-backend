@@ -5,7 +5,7 @@ class that paginates a database of popular names
 """
 import csv
 import math
-from typing import List
+from typing import List, Dict, Tuple
 
 
 class Server:
@@ -38,7 +38,7 @@ class Server:
             return []
         return dataset[start:end]
 
-    def index_range(self, page: int, page_size: int) -> tuple[int, int]:
+    def index_range(self, page: int, page_size: int) -> Tuple[int, int]:
         """
         method definition
         """
@@ -46,7 +46,7 @@ class Server:
         end = min(start + page_size, len(self.dataset()))
         return start, end
 
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
         """
         method definition that returns a dictionary
         containing information regarding current page & dataset

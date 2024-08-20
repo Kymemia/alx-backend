@@ -5,7 +5,7 @@ class that paginates a database of popular names
 """
 import csv
 import math
-from typing import List
+from typing import List, Tuple
 
 
 class Server:
@@ -28,6 +28,11 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
+        """
+        method definition that takes two integer arguments,
+        page (default value 1)
+        and page_size (default value 10)
+        """
         assert isinstance(page, int) and page > 0
         assert isinstance(page_size, int) and page_size > 0
 
@@ -38,7 +43,7 @@ class Server:
             return []
         return dataset[start:end]
 
-    def index_range(self, page: int, page_size: int) -> tuple[int, int]:
+    def index_range(self, page: int, page_size: int) -> Tuple[int, int]:
         """
         method definition
         """

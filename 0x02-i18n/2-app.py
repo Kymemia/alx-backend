@@ -15,7 +15,8 @@ babel = Babel(app)
 
 def get_locale():
     """
-    method definition
+    method definition that determines the best match
+    with the supported languages.
     """
     return request.accept_languages.best_match(["en", "fr"])
 

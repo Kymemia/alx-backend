@@ -26,6 +26,9 @@ babel.localeselector_func = get_locale
 
 @app.route('/')
 def index():
+    """
+    method definition that renders index.html
+    """
     return render_template('1-index.html')
 
 

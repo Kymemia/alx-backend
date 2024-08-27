@@ -18,7 +18,8 @@ def get_locale():
     """
     method definition to configure available languages in my app.
     """
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
+    best_match = request.accept_languages.best_match(app.config['LANGUAGES'])
+    return best_match if best_match else app.config['BABEL_DEFAULT_LOCALE']
 
 
 babel.localeselector_func = get_locale

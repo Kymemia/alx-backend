@@ -6,12 +6,21 @@ that's stored in a module-level named, babel.
 """
 from flask_babel import Babel
 from flask import Flask, render_template, request
-from config import Config
 
 app = Flask(__name__)
-app.config.from_object(Config)
-
 babel = Babel(app)
+
+
+class Config:
+    """
+    class definition that contains the app's configurations
+    """
+    LANGUAGES = ["en", "fr"]
+    BABEL_DEFAULT_LOCALE = "en"
+    BABEL_DEFAULT_TIMEZONE = "UTC"
+
+
+app.config.from_object(Config)
 
 
 def get_locale():

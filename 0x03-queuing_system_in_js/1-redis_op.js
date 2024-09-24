@@ -15,7 +15,6 @@ async function connectRedis () {
 }
 
 function setNewSchool (schoolName, value) {
-  console.log(`Setting value for ${schoolName}`);
   client.set(schoolName, value, (error, reply) => {
     if (error) {
       console.error('Error setting value:', error.message);
@@ -26,7 +25,6 @@ function setNewSchool (schoolName, value) {
 }
 
 function displaySchoolValue (schoolName) {
-  console.log(`Getting value for ${schoolName}`);
   client.get(schoolName, (error, reply) => {
     if (error) {
       console.error('Error retrieving school value:', error.message);
